@@ -1,0 +1,47 @@
+﻿@model Category
+
+<form method="post" action="Create" asp-antiforgery="true">
+    <div class="p-3">
+        <div class="row">
+            @if (Model == null) { 
+                <h2 class="text-primary">Create Category</h2>
+            }else{
+                <h2 class="text-primary">Edit Category</h2>
+            }
+            
+        </div>
+        
+        <div asp-validation-summary="All"></div>
+
+        @if (Model != null && Model.Id != 0) {
+            <input type="hidden" asp-for="Id">
+        }
+
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control"/>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="DisplayOrder"></label>
+            <input asp-for="DisplayOrder" class="form-control" />
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+        </div>
+        
+        @if (Model == null || Model.Id == 0) {
+            <button type="submit" class="btn btn-primary" style="width:150px;"> Create </button>
+        }
+        else{
+            <button type="submit" class="btn btn-primary" style="width:150px;" asp-controller="Category" asp-action="Create"> Update </button>
+        }
+        
+        <a class="btn btn-secondary" style="width:150px;" asp-controller="Category" asp-action="Index">Back</a>
+    </div>
+</form>
+
+@section scripts{
+    @{
+        <partial name="_validationscriptspartial" />
+    }
+}
