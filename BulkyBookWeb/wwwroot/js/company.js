@@ -1,24 +1,25 @@
 ﻿var dataTable;
 
 $(document).ready(function () {
-    dataTable = $('#tblProduct').DataTable({
+    dataTable = $('#tblCompany').DataTable({
         ajax: {
-            url: '/admin/product/GetAllProducts',
+            url: '/admin/company/GetAllCompanies',
         },
         columns: [
-            { data: 'title', width: '25%' },
-            { data: 'isbn', width: '15%' },
-            { data: 'price', width: '15%' },
-            { data: 'author', width: '15%' },
-            { data: 'category.name', width: '15%' },
+            { data: 'name', width: '15%' },
+            { data: 'streetAddress', width: '15%' },
+            { data: 'city', width: '10%' },
+            { data: 'state', width: '10%' },
+            { data: 'postalCode', width: '5%' },
+            { data: 'phoneNumber', width: '10%' },
             {
                 data: 'id', width: '15%', render: function (data) {
                     return `
-                        <a class="btn btn-warning btn-sm" href="/admin/product/upsert/${data}">
+                        <a class="btn btn-warning btn-sm" href="/admin/company/upsert/${data}">
                             <i class="bi bi-pencil-square"></i> &nbsp; Edit
                         </a>
                         &nbsp;
-                        <a class="btn btn-danger btn-sm" onClick=Delete('/admin/product/delete/${data}')>
+                        <a class="btn btn-danger btn-sm" onClick=Delete('/admin/company/delete/${data}')>
                             <i class="bi bi-x-circle"></i> &nbsp; Delete
                         </a>
 

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Company>
+
+<div class="container p-3">
+    <div class="row">
+        <div class="col-6">
+            <h2>Company List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a class="btn btn-primary" asp-controller="Company" asp-action="Upsert">
+                <i class="bi bi-plus-circle"></i> &nbsp;Create New Company
+            </a>
+        </div>
+    </div>
+
+    <br />
+
+    <table id="tblCompany" class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">Postal Code</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="~/js/company.js"></script>
+}
+
+
