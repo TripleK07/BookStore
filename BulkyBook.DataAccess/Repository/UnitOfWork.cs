@@ -16,6 +16,7 @@ namespace BulkyBook.DataAccess.Repository
         public ICoverTypeRepository CoverType { get; private set; }
         public IProductRepository Product { get; private set; }
         public IApplicationUserRepository ApplicationUser { get; private set; }
+        public ICompanyRepository Company { get; private set; }
 
         public UnitOfWork(ApplicationDbContext context) { 
             this.dbContext = context;
@@ -23,6 +24,7 @@ namespace BulkyBook.DataAccess.Repository
             this.CoverType = new CoverTypeRepository(dbContext);
             this.Product = new ProductRepository(dbContext);
             this.ApplicationUser = new ApplicationUserRepository(dbContext);
+            this.Company = new CompanyRepository(dbContext);
         }
 
         public void Save()
