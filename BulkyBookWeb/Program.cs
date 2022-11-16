@@ -32,6 +32,15 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 //Add DI for IEmailSender
 builder.Services.AddSingleton<IEmailSender, EmailSender>();
 
+//Define default path for Error, Login, Logout
+builder.Services.ConfigureApplicationCookie(options =>
+    {
+        options.LoginPath = $"/Identity/Account/Login";
+        options.LogoutPath = $"/Identity/Account/Logout";
+        options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+    } 
+);
+
 
 //to refresh razor page on save
 builder.Services.AddRazorPages();

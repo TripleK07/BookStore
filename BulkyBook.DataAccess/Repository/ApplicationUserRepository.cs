@@ -16,10 +16,5 @@ namespace BulkyBook.DataAccess.Repository
         {
             this.dbContext = context;
         }
-
-        public void Update(ApplicationUser obj)
-        {
-            dbContext.applicationUsers.Update(obj);
-        }
     }
 }
